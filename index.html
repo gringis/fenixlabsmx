@@ -82,39 +82,29 @@
         </div>
       </div>
     </section>
-    <section class="section index-comments-section" data-index-comments>
+    <section class="section giscus-comments-section" id="comentarios">
       <div class="section-header">
         <span class="eyebrow">Comentarios</span>
         <h2>Lo que opinan del proyecto</h2>
-        <p>Comentarios guardados localmente por ahora, con estructura lista para conectarse a GitHub cuando el sitio esté publicado.</p>
+        <p>Participa con tu cuenta de GitHub. Los comentarios se guardan en las Discussions oficiales del proyecto.</p>
       </div>
 
-      <div class="index-comments-layout">
-        <form class="comment-form index-comment-form" data-index-comment-form>
-          <label>
-            <span>Nombre</span>
-            <input name="name" type="text" maxlength="40" placeholder="Tu nombre" required>
-          </label>
-
-          <label>
-            <span>Comentario</span>
-            <textarea name="comment" maxlength="420" rows="4" placeholder="Escribe tu comentario..." required></textarea>
-          </label>
-
-          <button class="btn btn-primary" type="submit">Publicar comentario</button>
-          <p class="github-comments-note">Modo local activo. La conexión a GitHub se activa después con Discussions o Issues.</p>
-        </form>
-
-        <div class="index-comment-preview">
-          <article class="faq-comment-card" data-index-comment-card></article>
-
-          <div class="faq-comment-controls">
-            <span data-index-comment-counter>1 / 1</span>
-            <div class="faq-comment-progress-track">
-              <div class="faq-comment-progress" data-index-comment-progress></div>
-            </div>
-          </div>
-        </div>
+      <div class="giscus-comments-card">
+        <script src="https://giscus.app/client.js"
+          data-repo="gringis/fenixlabsmx"
+          data-repo-id="R_kgDOS7mkoA"
+          data-category="General"
+          data-category-id="DIC_kwDOS7mkoM4C_PQq"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="dark"
+          data-lang="es"
+          crossorigin="anonymous"
+          async>
+        </script>
       </div>
     </section>
   </main>
@@ -122,6 +112,5 @@
   <script src="assets/js/particles.js"></script>
   <script src="assets/js/animations.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/comments.js"></script>
 </body>
 </html>

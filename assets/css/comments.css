@@ -1,35 +1,14 @@
-.comments-section,
-.index-comments-section {
+.giscus-comments-section {
   padding-top: 42px;
   border-top: 1px solid var(--line);
 }
 
-.comments-header,
-.index-comments-section .section-header {
+.giscus-comments-section .section-header {
   margin-bottom: 22px;
 }
 
-.comments-header p,
-.comments-empty,
-.github-comments-note {
-  color: var(--muted);
-}
-
-.index-comments-layout {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
-  gap: 22px;
-  align-items: stretch;
-}
-
-.comment-form {
-  display: grid;
-  gap: 16px;
-}
-
-.index-comment-form,
-.comment-card,
-.faq-comment-card {
+.giscus-comments-card {
+  padding: clamp(18px, 3vw, 28px);
   border: 1px solid var(--line);
   border-radius: 6px;
   background:
@@ -38,187 +17,13 @@
   box-shadow: var(--shadow-soft);
 }
 
-.index-comment-form {
-  padding: 24px;
-}
-
-.comment-form label {
-  display: grid;
-  gap: 8px;
-  color: var(--muted-strong);
-  font-weight: 800;
-}
-
-.comment-form input,
-.comment-form textarea {
+.giscus,
+.giscus-frame {
   width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: rgba(244, 241, 234, 0.055);
-  color: var(--text);
-  padding: 14px 16px;
-  font: inherit;
-  outline: none;
-}
-
-.comment-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.comment-form input:focus,
-.comment-form textarea:focus {
-  border-color: rgba(202, 187, 139, 0.48);
-  box-shadow: 0 0 0 4px rgba(202, 187, 139, 0.1);
-}
-
-.comment-form .btn {
-  width: fit-content;
-}
-
-.github-comments-note {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.comments-list {
-  display: grid;
-  gap: 14px;
-}
-
-.comment-card {
-  padding: 18px;
-  animation: commentIn 0.42s ease both;
-}
-
-.comment-card div,
-.faq-comment-card div {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.comment-card strong,
-.faq-comment-card strong {
-  color: var(--text);
-}
-
-.comment-card span,
-.faq-comment-card span {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.comment-card p,
-.faq-comment-card p {
-  color: var(--muted-strong);
-  overflow-wrap: anywhere;
-}
-
-.comment-delete {
-  border: 1px solid rgba(202, 187, 139, 0.35);
-  border-radius: 999px;
-  background: rgba(202, 187, 139, 0.08);
-  color: #d4b47a;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.faq-comment-card {
-  min-height: 220px;
-  padding: 28px;
-  background:
-    linear-gradient(135deg, rgba(202, 187, 139, 0.11), transparent 48%),
-    rgba(22, 29, 26, 0.9);
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity 0.28s ease,
-    transform 0.28s ease;
-}
-
-.faq-comment-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.faq-comment-card p {
-  max-width: 780px;
-  font-size: 1.08rem;
-  line-height: 1.75;
-}
-
-.faq-comment-controls {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px;
-  align-items: center;
-  margin-top: 16px;
-  color: var(--muted);
-  font-weight: 800;
-}
-
-.faq-comment-progress-track {
-  height: 8px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(244, 241, 234, 0.1);
-}
-
-.faq-comment-progress {
-  width: 0;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--gradient-main);
-}
-
-.faq-comment-progress.is-running {
-  animation: commentProgress 6.2s linear forwards;
-}
-
-@keyframes commentIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes commentProgress {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100%;
-  }
 }
 
 @media (max-width: 760px) {
-  .index-comments-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .comment-form .btn {
-    width: 100%;
-  }
-
-  .comment-card div,
-  .faq-comment-card div,
-  .faq-comment-controls {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .faq-comment-card {
-    min-height: 220px;
-    padding: 22px;
+  .giscus-comments-card {
+    padding: 14px;
   }
 }
