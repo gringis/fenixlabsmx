@@ -5304,3 +5304,112 @@ body,
     justify-self: center;
   }
 }
+
+/* Corrección final para entradas en móvil */
+@media (max-width: 900px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .article-hero,
+  .article-layout,
+  .article-layout.section {
+    width: min(100% - 28px, 1180px);
+    max-width: min(100% - 28px, 1180px);
+    margin-inline: auto;
+  }
+
+  .article-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px;
+  }
+
+  .article-layout,
+  .article-layout.section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px;
+    padding-top: 24px;
+  }
+
+  .article-sidebar {
+    position: static !important;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 20px;
+  }
+
+  .article-sidebar a {
+    overflow-wrap: anywhere;
+  }
+
+  .article-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 22px;
+    overflow: hidden;
+  }
+
+  .article-content h2,
+  .article-content h3,
+  .article-content p,
+  .article-content li,
+  .article-content strong,
+  .article-content a,
+  .article-meta span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .article-content h2 {
+    font-size: clamp(1.7rem, 8vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  .article-content table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .data-grid,
+  .brand-showcase,
+  .doc-links-grid,
+  .service-list,
+  .process-list,
+  .tools-grid,
+  .comparison-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .article-hero,
+  .article-layout,
+  .article-layout.section {
+    width: min(100% - 20px, 1180px);
+    max-width: min(100% - 20px, 1180px);
+  }
+
+  .article-sidebar,
+  .article-content {
+    padding: 18px;
+    border-radius: 6px;
+  }
+
+  .article-sidebar h2 {
+    font-size: 1.25rem;
+  }
+
+  .article-sidebar a {
+    font-size: 1rem;
+  }
+}
