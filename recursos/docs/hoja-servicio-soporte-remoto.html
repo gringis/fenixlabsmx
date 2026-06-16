@@ -3,82 +3,317 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoja de Servicio | Fénix Labs</title>
+  <title>Orden de Servicio Técnico a Distancia | Fénix Labs</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 32px;
-      font-family: Arial, sans-serif;
-      color: #172033;
-      background: #f6f8fb;
+      padding: 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+      background: #e9e9e9;
     }
 
     main {
-      max-width: 980px;
+      width: 980px;
       margin: 0 auto;
-      padding: 32px;
-      border: 1px solid #d9e1ee;
-      border-radius: 18px;
-      background: #ffffff;
+      border: 2px solid #000;
+      background: #f4f4f4;
+    }
+
+    .top-space {
+      height: 102px;
+      border-bottom: 1px solid #000;
+      background: #eeeeee;
     }
 
     h1 {
-      margin-top: 0;
-      color: #0f172a;
+      margin: 0;
+      padding: 14px 10px 10px;
+      border-bottom: 1px solid #000;
+      background: #bcd3e8;
+      text-align: center;
+      font-size: 1.55rem;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .sheet {
+      display: grid;
+      gap: 18px;
+      padding: 18px 0 18px;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      padding: 0 0;
+    }
+
+    .two-columns > div:first-child,
+    .company-block {
+      margin-left: 0;
+    }
+
+    .two-columns > div:last-child {
+      margin-right: 0;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 22px 0;
+      table-layout: fixed;
+      font-size: 0.78rem;
+      background: #f4f4f4;
     }
 
     th,
     td {
-      padding: 12px;
-      border: 1px solid #cbd5e1;
-      text-align: left;
+      height: 20px;
+      padding: 2px 5px;
+      border: 1px solid #000;
       vertical-align: top;
     }
 
     th {
-      width: 28%;
-      background: #e0f2fe;
-      color: #0f172a;
+      background: #bcd3e8;
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .line {
-      height: 34px;
+    .label {
+      width: 28%;
+      background: #dddddd;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      background: #bcd3e8;
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .subhead {
+      background: #dddddd;
+      text-align: center;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .diagnostic {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 0;
+    }
+
+    .diagnostic-main td {
+      height: 138px;
+    }
+
+    .service-type td {
+      height: 22px;
+    }
+
+    .service-type .section-title {
+      height: 20px;
+      text-transform: none;
+    }
+
+    .remote-quote {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 0;
+    }
+
+    .remote-quote td {
+      height: 20px;
+    }
+
+    .remote-quote .tall {
+      height: 52px;
+    }
+
+    .payment td {
+      height: 20px;
+    }
+
+    .payment .amount {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .company-signatures {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: end;
+      gap: 0;
+    }
+
+    .company-block td {
+      height: 20px;
+    }
+
+    .company-block a {
+      color: #8b008b;
+      text-decoration: underline;
+    }
+
+    .signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      padding: 0 26px 2px 18px;
+      align-items: end;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .signature-line {
+      display: block;
+      height: 28px;
+      border-bottom: 1px solid #000;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 1020px) {
+      body {
+        padding: 10px;
+      }
+
+      main {
+        width: 980px;
+      }
     }
 
     @media print {
       body {
-        background: #ffffff;
+        padding: 0;
+        background: #fff;
       }
 
       main {
-        border: 0;
+        width: 100%;
+        border-width: 1px;
       }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>Hoja de servicio de soporte remoto</h1>
-    <p>Formato académico para documentar una atención técnica a distancia.</p>
+    <div class="top-space"></div>
+    <h1>Orden de servicio tecnico a distancia</h1>
 
-    <table>
-      <tr><th>Nombre del usuario</th><td class="line"></td></tr>
-      <tr><th>Fecha y hora</th><td class="line"></td></tr>
-      <tr><th>Equipo o sistema afectado</th><td class="line"></td></tr>
-      <tr><th>Canal de atención</th><td>Llamada / Chat / Correo / Videollamada / Acceso remoto</td></tr>
-      <tr><th>Descripción del problema</th><td class="line"></td></tr>
-      <tr><th>Diagnóstico inicial</th><td class="line"></td></tr>
-      <tr><th>Acciones realizadas</th><td class="line"></td></tr>
-      <tr><th>Resultado</th><td>Resuelto / En seguimiento / Requiere soporte presencial</td></tr>
-      <tr><th>Recomendaciones</th><td class="line"></td></tr>
-      <tr><th>Firma del técnico</th><td class="line"></td></tr>
-    </table>
+    <div class="sheet">
+      <div class="two-columns">
+        <div>
+          <table>
+            <tr><th colspan="2">Informacion general</th></tr>
+            <tr><td class="label">Folio:</td><td></td></tr>
+            <tr><td class="label">Fecha:</td><td></td></tr>
+            <tr><td class="label">Hora inicio:</td><td></td></tr>
+            <tr><td class="label">Hora fin:</td><td></td></tr>
+            <tr><td class="label">No.llamada</td><td>9617749931</td></tr>
+            <tr><th colspan="2">Datos del equipo</th></tr>
+            <tr><td class="label">Tipo:</td><td></td></tr>
+            <tr><td class="label">Marca/modelo:</td><td></td></tr>
+            <tr><td class="label">No. serie:</td><td></td></tr>
+            <tr><td class="label">Estado:</td><td></td></tr>
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <tr><th colspan="2">Datos del cliente</th></tr>
+            <tr><td class="label">Nombre:</td><td></td></tr>
+            <tr><td class="label">Telefono:</td><td></td></tr>
+            <tr><td class="label">Email:</td><td></td></tr>
+            <tr><td class="label">RFC:</td><td></td></tr>
+          </table>
+
+          <table style="margin-top: 18px;">
+            <tr><th colspan="2">Datos del tecnico</th></tr>
+            <tr><td class="label">Nombre:</td><td></td></tr>
+            <tr><td class="label">Telefono:</td><td></td></tr>
+            <tr><td class="label">Email:</td><td></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="diagnostic">
+        <table class="diagnostic-main">
+          <tr><th colspan="4">Diagnostico del equipo</th></tr>
+          <tr>
+            <td class="subhead">Descripcion del fallo</td>
+            <td class="subhead">Antecedentes del fallo</td>
+            <td class="subhead">Signos del fallo</td>
+            <td class="subhead">Comportamiento</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+
+        <table class="service-type">
+          <tr><th class="section-title">Tipo de servicio</th></tr>
+          <tr><td>Presencial [ ]</td></tr>
+          <tr><td>A distancia [ ]</td></tr>
+          <tr><td>Asesoria telefonica [ ]</td></tr>
+          <tr><th class="section-title">Estado del servicio</th></tr>
+          <tr><td>Activo [ ]</td></tr>
+          <tr><td>Finalizado [ ]</td></tr>
+          <tr><td style="height: 40px;"></td></tr>
+        </table>
+      </div>
+
+      <div class="remote-quote">
+        <table>
+          <tr><th colspan="2">Bitacora de acceso remoto</th></tr>
+          <tr><td class="label">Software utilizado:</td><td></td></tr>
+          <tr><td class="label">Duracion del servicio:</td><td></td></tr>
+          <tr><td class="label tall">Acciones realizadas:</td><td class="tall"></td></tr>
+          <tr><td class="label">Tiempo de servicio:</td><td></td></tr>
+        </table>
+
+        <table class="payment">
+          <tr><th colspan="3">Cotizacion</th></tr>
+          <tr>
+            <td rowspan="4" class="label" style="width: 46%;">Metodo de pago:<br>[ ]Efectivo<br>[ ]Transferencia<br>[ ]Cheque<br>[ ]Deposito</td>
+            <td class="label">SubTotal:</td>
+            <td class="amount">0</td>
+          </tr>
+          <tr><td class="label">IVA:</td><td class="amount">0</td></tr>
+          <tr><td class="label">Total:</td><td class="amount">0</td></tr>
+          <tr><td colspan="2" style="height: 48px; border: 0;"></td></tr>
+        </table>
+      </div>
+
+      <div class="company-signatures">
+        <table class="company-block">
+          <tr><th colspan="2">Datos de la empresa</th></tr>
+          <tr><td class="label">Telefono de contacto:</td><td style="text-align: center;">9617749931</td></tr>
+          <tr><td class="label">Redes sociales:</td><td style="text-align: center;">@FENIXLABS</td></tr>
+          <tr><td class="label">Email:</td><td style="text-align: center;"><a href="mailto:fenixlabs@gmail.com">fenixlabs@gmail.com</a></td></tr>
+          <tr><td class="label">Direccion:</td><td></td></tr>
+        </table>
+
+        <div class="signatures">
+          <div><span class="signature-line"></span>Nombre y firma del cliente</div>
+          <div><span class="signature-line"></span>Nombre y firma del tecnico</div>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html>
