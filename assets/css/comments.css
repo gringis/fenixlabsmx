@@ -8,17 +8,30 @@
 }
 
 .giscus-comments-card {
+  position: relative;
+  overflow: hidden;
   padding: clamp(18px, 3vw, 28px);
   border: 1px solid var(--line);
   border-radius: 6px;
   background:
+    radial-gradient(circle at top right, rgba(212, 180, 122, 0.1), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02)),
     rgba(22, 29, 26, 0.86);
   box-shadow: var(--shadow-soft);
 }
 
+.giscus-comments-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 180, 122, 0.55), transparent);
+}
+
 .giscus,
 .giscus-frame {
+  position: relative;
+  z-index: 1;
   width: 100%;
 }
 
