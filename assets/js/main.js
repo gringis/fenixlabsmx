@@ -33,19 +33,39 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.setAttribute("aria-modal", "true");
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-label", "Seleccionar tema visual");
+    const activeTheme = document.documentElement.dataset.themeChoice || "auto";
     overlay.innerHTML = `
       <div class="theme-gate-panel">
-        <span class="eyebrow">Fénix Labs</span>
-        <h2>Elige el mood de la web</h2>
-        <p>Detectamos el tema del dispositivo, pero puedes cambiar la paleta antes de entrar.</p>
+        <header class="theme-gate-header">
+          <div>
+            <h2>Configuración de apariencia</h2>
+            <p>Selecciona cómo quieres ver Fénix Labs. Puedes cambiarlo después desde el botón flotante.</p>
+          </div>
+          <button class="theme-gate-close" type="button" data-theme-close aria-label="Cerrar selector">×</button>
+        </header>
+        <h3>Tema clásico</h3>
         <div class="theme-gate-options">
-          <button type="button" data-theme-pick="auto"><span>Auto</span><strong>Sigue tu dispositivo</strong></button>
-          <button type="button" data-theme-pick="dark"><span>Obscuro</span><strong>Azul, magenta y cobre</strong></button>
-          <button type="button" data-theme-pick="light"><span>Claro</span><strong>Solar, limpio y vibrante</strong></button>
-          <button type="button" data-theme-pick="aurora"><span>Aurora</span><strong>Verde lima, cyan y violeta</strong></button>
-          <button type="button" data-theme-pick="contrast"><span>Contraste</span><strong>Negro, blanco y amarillo</strong></button>
+          <button class="${activeTheme === "light" ? "is-selected" : ""}" type="button" data-theme-pick="light">
+            <span class="theme-preview theme-preview-light"><i></i><i></i><i></i></span>
+            <strong>Predeterminado-Claro</strong>
+          </button>
+          <button class="${activeTheme === "dark" ? "is-selected" : ""}" type="button" data-theme-pick="dark">
+            <span class="theme-preview theme-preview-dark"><i></i><i></i><i></i></span>
+            <strong>Predeterminado-Oscuro</strong>
+          </button>
+          <button class="${activeTheme === "auto" ? "is-selected" : ""}" type="button" data-theme-pick="auto">
+            <span class="theme-preview theme-preview-auto"><i></i><i></i><i></i></span>
+            <strong>Predeterminado - Seguir el sistema</strong>
+          </button>
+          <button class="${activeTheme === "aurora" ? "is-selected" : ""}" type="button" data-theme-pick="aurora">
+            <span class="theme-preview theme-preview-aurora"><i></i><i></i><i></i></span>
+            <strong>Colorido</strong>
+          </button>
+          <button class="${activeTheme === "contrast" ? "is-selected" : ""}" type="button" data-theme-pick="contrast">
+            <span class="theme-preview theme-preview-contrast"><i></i><i></i><i></i></span>
+            <strong>Comodidad</strong>
+          </button>
         </div>
-        <button class="theme-gate-skip" type="button" data-theme-close>Entrar con este tema</button>
       </div>
     `;
 
