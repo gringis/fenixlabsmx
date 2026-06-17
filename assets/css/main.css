@@ -6439,3 +6439,201 @@ html[data-theme="light"] .blog-editorial-page .site-footer {
     font-size: 2rem;
   }
 }
+
+/* ==============================
+   HOME AJUSTADO: PORTADA + CARRUSEL
+   ============================== */
+
+.landing-hero {
+  min-height: auto;
+  padding-top: clamp(72px, 9vw, 128px);
+  padding-bottom: clamp(54px, 7vw, 96px);
+}
+
+.landing-hero .hero-content {
+  max-width: 680px;
+}
+
+.landing-hero h1 {
+  max-width: 10.5ch;
+  font-size: clamp(3rem, 6.4vw, 6.6rem);
+  line-height: 0.94;
+}
+
+.landing-hero h1 span {
+  font-size: 0.84em;
+}
+
+.landing-hero .hero-content p {
+  max-width: 620px;
+  font-size: clamp(1rem, 1.45vw, 1.22rem);
+}
+
+.landing-hero .hero-stats strong {
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+}
+
+.hero-bento {
+  align-content: start;
+}
+
+.bento-card,
+.bento-terminal {
+  min-height: 154px;
+  padding: clamp(18px, 2.2vw, 25px);
+}
+
+.bento-large {
+  min-height: 178px;
+}
+
+.bento-card strong,
+.quality-report strong {
+  max-width: 13ch;
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+.bento-card small,
+.quality-report small {
+  font-size: 0.95rem;
+}
+
+.bento-terminal h2 {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.brand-marquee-section {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-block: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.brand-track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  padding: 18px 0;
+  animation: brandSlide 28s linear infinite;
+}
+
+.brand-track:hover {
+  animation-play-state: paused;
+}
+
+.brand-track span {
+  display: grid;
+  min-width: 190px;
+  min-height: 64px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: var(--muted-strong);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  font-weight: 950;
+  opacity: 0.58;
+  filter: grayscale(1);
+  transition: opacity 0.22s ease, transform 0.22s ease, filter 0.22s ease;
+}
+
+.brand-track span:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: translateY(-3px);
+}
+
+.home-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: clamp(36px, 6vw, 72px);
+}
+
+.home-entry-card {
+  min-height: 230px;
+  padding: 24px;
+  border: 1px solid color-mix(in srgb, var(--line-strong) 48%, transparent);
+  border-radius: 22px;
+  color: var(--text);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--card-strong) 86%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition: transform 0.24s ease, border-color 0.24s ease;
+}
+
+.home-entry-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--orange);
+}
+
+.home-entry-card span {
+  display: block;
+  margin-bottom: 42px;
+  color: var(--orange);
+  font-size: 0.95rem;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+}
+
+.home-entry-card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.3rem, 2vw, 1.85rem);
+}
+
+.home-entry-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+@keyframes brandSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
+
+@media (max-width: 1100px) {
+  .landing-hero h1 {
+    max-width: 11.5ch;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+  }
+
+  .home-entry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .landing-hero {
+    padding-top: 48px;
+  }
+
+  .landing-hero h1 {
+    max-width: 9.5ch;
+    font-size: clamp(2.55rem, 12vw, 4rem);
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-track span {
+    min-width: 150px;
+    min-height: 56px;
+  }
+
+  .home-entry-grid {
+    grid-template-columns: 1fr;
+  }
+}
