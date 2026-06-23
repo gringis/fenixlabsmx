@@ -1,42 +1,183 @@
-.giscus-comments-section {
+.firebase-comments-section {
   padding-top: 42px;
   border-top: 1px solid var(--line);
 }
 
-.giscus-comments-section .section-header {
+.firebase-comments-section .section-header {
   margin-bottom: 22px;
 }
 
-.giscus-comments-card {
+.firebase-comments-card {
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(320px, 1fr);
+  gap: 22px;
   padding: clamp(18px, 3vw, 28px);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 18px;
   background:
-    radial-gradient(circle at top right, rgba(212, 180, 122, 0.1), transparent 34%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02)),
-    rgba(22, 29, 26, 0.86);
+    radial-gradient(circle at top right, rgba(212, 180, 122, 0.14), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    color-mix(in srgb, var(--card) 88%, transparent);
   box-shadow: var(--shadow-soft);
 }
 
-.giscus-comments-card::before {
+.firebase-comments-card::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 180, 122, 0.55), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 180, 122, 0.65), transparent);
 }
 
-.giscus,
-.giscus-frame {
+.firebase-comment-form,
+.firebase-comments-feed {
   position: relative;
   z-index: 1;
-  width: 100%;
 }
 
-@media (max-width: 760px) {
-  .giscus-comments-card {
+.firebase-comment-form {
+  display: grid;
+  gap: 16px;
+}
+
+.firebase-comment-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.firebase-comment-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted-strong);
+  font-weight: 850;
+}
+
+.firebase-comment-form input,
+.firebase-comment-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 14px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg-soft) 70%, transparent);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.firebase-comment-form textarea {
+  min-height: 138px;
+  resize: vertical;
+}
+
+.firebase-comment-form input:focus,
+.firebase-comment-form textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--orange) 18%, transparent);
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.comment-actions p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.comment-actions p[data-status="ready"] {
+  color: #22c55e;
+}
+
+.comment-actions p[data-status="error"] {
+  color: #fb7185;
+}
+
+.firebase-comments-feed {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.firebase-comment {
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--line-strong) 52%, transparent);
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--card-strong) 82%, transparent), color-mix(in srgb, var(--card) 70%, transparent));
+}
+
+.firebase-comment header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.firebase-comment strong,
+.firebase-comment span,
+.firebase-comment time {
+  display: block;
+}
+
+.firebase-comment strong {
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.firebase-comment span,
+.firebase-comment time {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.firebase-comment p {
+  margin: 0;
+  color: var(--muted-strong);
+  line-height: 1.65;
+}
+
+.comments-empty {
+  margin: 0;
+  padding: 22px;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .firebase-comments-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .firebase-comments-card {
     padding: 14px;
+  }
+
+  .firebase-comment-form .form-row,
+  .comment-actions {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .comment-actions .btn {
+    width: 100%;
+  }
+
+  .firebase-comment header {
+    display: grid;
   }
 }

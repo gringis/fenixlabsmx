@@ -65,7 +65,7 @@
         <div class="hero-stats">
           <div><strong>5</strong><small>Integrantes</small></div>
           <div><strong>7</strong><small>Entradas</small></div>
-          <div><strong>GitHub</strong><small>Comentarios reales</small></div>
+          <div><strong>Firebase</strong><small>Comentarios reales</small></div>
         </div>
       </div>
 
@@ -139,29 +139,36 @@
       </a>
     </section>
 
-    <section class="section giscus-comments-section" id="comentarios">
+    <section class="section firebase-comments-section" id="comentarios">
       <div class="section-header">
         <span class="eyebrow">Comentarios</span>
         <h2>Lo que opinan del proyecto</h2>
-        <p>Participa con tu cuenta de GitHub. Los comentarios se guardan en las Discussions oficiales del proyecto.</p>
+        <p>Comparte tu opinion sin iniciar sesion. Al conectar Firebase, los comentarios se guardan en Firestore.</p>
       </div>
 
-      <div class="giscus-comments-card">
-        <script src="https://giscus.app/client.js"
-          data-repo="gringis/fenixlabsmx"
-          data-repo-id="R_kgDOS7mkoA"
-          data-category="General"
-          data-category-id="DIC_kwDOS7mkoM4C_PQq"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="https://gringis.github.io/fenixlabsmx/assets/css/giscus-theme.css"
-          data-lang="es"
-          crossorigin="anonymous"
-          async>
-        </script>
+      <div class="firebase-comments-card" data-comments-root>
+        <form class="firebase-comment-form" data-comment-form>
+          <div class="form-row">
+            <label>
+              <span>Nombre</span>
+              <input type="text" name="name" maxlength="40" placeholder="Tu nombre" required>
+            </label>
+            <label>
+              <span>Grupo o rol</span>
+              <input type="text" name="role" maxlength="40" placeholder="Ej. Alumno, docente, visitante">
+            </label>
+          </div>
+          <label>
+            <span>Comentario</span>
+            <textarea name="message" maxlength="420" placeholder="Escribe tu comentario..." required></textarea>
+          </label>
+          <div class="comment-actions">
+            <p data-comment-status>Modo demo local activo hasta conectar Firebase.</p>
+            <button type="submit" class="btn btn-primary">Publicar comentario</button>
+          </div>
+        </form>
+
+        <div class="firebase-comments-feed" data-comments-feed aria-live="polite"></div>
       </div>
     </section>
   </main>
@@ -182,5 +189,6 @@
   <script src="assets/js/particles.js"></script>
   <script src="assets/js/animations.js"></script>
   <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/firebase-comments.js"></script>
 </body>
 </html>
