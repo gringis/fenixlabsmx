@@ -19,14 +19,15 @@ service cloud.firestore {
         && request.resource.data.email is string
         && request.resource.data.email.size() >= 5
         && request.resource.data.email.size() <= 80
-        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && request.resource.data.email.matches('.*@.*\\..*')
         && request.resource.data.role is string
-        && request.resource.data.role.size() <= 40
+        && request.resource.data.role.size() >= 1
+        && request.resource.data.role.size() <= 80
         && request.resource.data.message is string
         && request.resource.data.message.size() >= 3
         && request.resource.data.message.size() <= 420
         && request.resource.data.page == 'index'
-        && request.resource.data.createdAt == request.time;
+        && request.resource.data.createdAt is timestamp;
 
       allow update, delete: if false;
     }
