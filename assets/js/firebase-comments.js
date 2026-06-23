@@ -22,12 +22,14 @@ const firebaseConfig = {
 const demoComments = [
   {
     name: "Docente evaluador",
+    email: "docente@fenixlabs.mx",
     role: "Revision academica",
     message: "La informacion esta organizada y el protocolo remoto se entiende con claridad.",
     createdAt: new Date("2026-06-07T18:49:00")
   },
   {
     name: "Visitante",
+    email: "visitante@correo.com",
     role: "Usuario domestico",
     message: "Me gusto que separaran servicios, blog y evidencias. Es facil encontrar cada parte.",
     createdAt: new Date("2026-06-15T20:12:00")
@@ -72,6 +74,8 @@ const formatDate = (value) => {
   }).format(date);
 };
 
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+
 const renderComments = (comments) => {
   if (!feed) {
     return;
@@ -88,6 +92,7 @@ const renderComments = (comments) => {
         <div>
           <strong>${escapeHtml(comment.name || "Visitante")}</strong>
           <span>${escapeHtml(comment.role || "Comentario")}</span>
+          <span>${escapeHtml(comment.email || "")}</span>
         </div>
         <time>${formatDate(comment.createdAt)}</time>
       </header>
@@ -141,14 +146,20 @@ if (root && form && feed) {
       const data = new FormData(form);
       const comment = {
         name: data.get("name").trim(),
+        email: data.get("email").trim(),
         role: data.get("role").trim() || "Visitante",
         message: data.get("message").trim(),
         page: "index",
         createdAt: serverTimestamp()
       };
 
-      if (!comment.name || !comment.message) {
-        setStatus("Completa nombre y comentario antes de publicar.", "error");
+      if (!comment.name || !comment.email || !comment.message) {
+        setStatus("Completa nombre, correo y comentario antes de publicar.", "error");
+        return;
+      }
+
+      if (!isValidEmail(comment.email)) {
+        setStatus("Escribe un correo electronico valido.", "error");
         return;
       }
 
@@ -170,13 +181,19 @@ if (root && form && feed) {
       const data = new FormData(form);
       const comment = {
         name: data.get("name").trim(),
+        email: data.get("email").trim(),
         role: data.get("role").trim() || "Visitante",
         message: data.get("message").trim(),
         createdAt: new Date()
       };
 
-      if (!comment.name || !comment.message) {
-        setStatus("Completa nombre y comentario antes de publicar.", "error");
+      if (!comment.name || !comment.email || !comment.message) {
+        setStatus("Completa nombre, correo y comentario antes de publicar.", "error");
+        return;
+      }
+
+      if (!isValidEmail(comment.email)) {
+        setStatus("Escribe un correo electronico valido.", "error");
         return;
       }
 
