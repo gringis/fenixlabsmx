@@ -11,12 +11,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyB_wJmnhAlLCjUbAm8Yo8dI9gCFnVnssqo",
+  authDomain: "fenixlabs-165fa.firebaseapp.com",
+  projectId: "fenixlabs-165fa",
+  storageBucket: "fenixlabs-165fa.firebasestorage.app",
+  messagingSenderId: "200079730217",
+  appId: "1:200079730217:web:b60c5939f599e213e8de38"
 };
 
 const demoComments = [
